@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AttarP12SIA Apps</string>
     <string name="kirim">Kirim</string>
+    <string name="verification_success">Verification success</string>
 </resources>
