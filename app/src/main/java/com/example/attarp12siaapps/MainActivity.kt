@@ -3,15 +3,10 @@ package com.example.attarp12siaapps
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.attarp12siaapps.databinding.ActivityFourthBinding
 import com.example.attarp12siaapps.databinding.ActivityMainBinding
-import com.example.attarp12siaapps.databinding.ActivityThirdBinding
-import com.example.attarp12siaapps.pertemuan_3.ThirdResultActivity
 import com.example.attarp12siaapps.pertemuan_4.FourthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -67,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
                     dialog.dismiss()
 
-                    val intent = Intent(this, AuthAcivity::class.java)
+                    val intent = Intent(this, AuthActivity::class.java)
                     startActivity(intent)
                     finish()
                 }

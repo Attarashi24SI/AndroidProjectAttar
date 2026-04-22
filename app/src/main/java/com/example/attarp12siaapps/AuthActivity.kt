@@ -3,18 +3,14 @@ package com.example.attarp12siaapps
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.attarp12siaapps.databinding.ActivityAuthAcivityBinding
-import com.example.attarp12siaapps.databinding.ActivityThirdBinding
-import com.example.attarp12siaapps.pertemuan_3.ThirdResultActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.snackbar.Snackbar
 
-class AuthAcivity : AppCompatActivity() {
+class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthAcivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +32,6 @@ class AuthAcivity : AppCompatActivity() {
             //Panggil Intent untuk ke MainActivity
             intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-
         }
         binding.buttonLogin.setOnClickListener {
             //Mengambil value dari inputNama dan menampilkan di Logcat
