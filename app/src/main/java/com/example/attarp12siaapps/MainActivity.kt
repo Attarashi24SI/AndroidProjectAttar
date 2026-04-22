@@ -13,6 +13,7 @@ import com.example.attarp12siaapps.databinding.ActivityMainBinding
 import com.example.attarp12siaapps.databinding.ActivityThirdBinding
 import com.example.attarp12siaapps.pertemuan_3.ThirdResultActivity
 import com.example.attarp12siaapps.pertemuan_4.FourthActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //Kode ini harus selalu dipanggil saat butuh akses "user_pref"
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
 //        super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -50,5 +54,28 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.btnLogout.setOnClickListener {
+            MaterialAlertDialogBuilder(this)
+                .setTitle("Konfirmasi")
+                .setMessage("Apakah Anda yakin ingin Logout?")
+                .setPositiveButton("Ya") { dialog, _ ->
+                    dialog.dismiss()
+
+                    val editor = sharedPref.edit()
+                    editor.clear()
+                    editor.apply()
+
+                    dialog.dismiss()
+
+                    val intent = Intent(this, AuthAcivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                .setNegativeButton("Batal") { dialog, _ ->
+                    dialog.dismiss()
+                    Log.e("Info Dialog","Anda memilih Tidak!")
+                }
+                .show()
+        }
     }
 }
