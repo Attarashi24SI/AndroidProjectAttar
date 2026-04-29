@@ -2,4 +2,6 @@
     <string name="app_name">AttarP12SIA Apps</string>
     <string name="kirim">Kirim</string>
     <string name="verification_success">Verification success</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

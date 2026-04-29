@@ -1,4 +1,4 @@
-package com.example.attarp12siaapps.pertemuan_5
+package com.example.attarp12siaapps.Home.pertemuan_5
 
 import android.os.Bundle
 import android.webkit.WebViewClient

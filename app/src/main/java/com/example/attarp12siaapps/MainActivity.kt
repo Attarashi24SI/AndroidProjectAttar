@@ -6,8 +6,12 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.attarp12siaapps.Home.Pertemuan_2.SecondActivity
+import com.example.attarp12siaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.attarp12siaapps.databinding.ActivityMainBinding
-import com.example.attarp12siaapps.pertemuan_4.FourthActivity
+import com.example.attarp12siaapps.Home.pertemuan_3.ThirdActivity
+import com.example.attarp12siaapps.Home.pertemuan_4.FourthActivity
+import com.example.attarp12siaapps.Home.pertemuan_5.activity_fifth
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class MainActivity : AppCompatActivity() {
@@ -35,8 +39,34 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        binding.btnToP2.setOnClickListener {
 
-        binding.btnToFourth.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+
+            /*tambahkan bagian berikut*/
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+
+            startActivity(intent)
+        }
+
+        binding.btnToP3.setOnClickListener {
+
+            val intent = Intent(this, ThirdActivity::class.java)
+            startActivity(intent)
+
+            /*tambahkan bagian berikut*/
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+
+            startActivity(intent)
+        }
+
+
+        binding.btnToP4.setOnClickListener {
 
             val intent = Intent(this, FourthActivity::class.java)
             startActivity(intent)
@@ -48,6 +78,34 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
         }
+
+        binding.btnToP5.setOnClickListener {
+
+            val intent = Intent(this, activity_fifth::class.java)
+            startActivity(intent)
+
+            /*tambahkan bagian berikut*/
+            intent.putExtra("name", "Politeknik Caltex Riau")
+            intent.putExtra("from", "Rumbai")
+            intent.putExtra("age", 25)
+
+            startActivity(intent)
+        }
+
+        binding.btnToP7.setOnClickListener {
+
+            val intent = Intent(this, SeventhActivity::class.java)
+
+
+            /*tambahkan bagian berikut*/
+//            intent.putExtra("name", "Politeknik Caltex Riau")
+//            intent.putExtra("from", "Rumbai")
+//            intent.putExtra("age", 25)
+
+            startActivity(intent)
+        }
+
+
 
         binding.btnLogout.setOnClickListener {
             MaterialAlertDialogBuilder(this)

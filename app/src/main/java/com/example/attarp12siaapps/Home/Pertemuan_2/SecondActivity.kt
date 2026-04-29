@@ -1,4 +1,4 @@
-package com.example.attarp12siaapps.Pertemuan_2
+package com.example.attarp12siaapps.Home.Pertemuan_2
 
 import android.os.Bundle
 import android.util.Log

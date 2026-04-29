@@ -1,4 +1,4 @@
-package com.example.attarp12siaapps.pertemuan_5
+package com.example.attarp12siaapps.Home.pertemuan_5
 
 import android.content.Intent
 import android.os.Bundle
@@ -66,7 +66,7 @@ class activity_fifth : AppCompatActivity() {
     }
 
     // Menangani aksi pada menu dan tombol back
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
 
             android.R.id.home -> {
