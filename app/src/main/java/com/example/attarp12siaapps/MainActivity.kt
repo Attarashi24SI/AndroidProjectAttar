@@ -96,14 +96,10 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, SeventhActivity::class.java)
 
-
-            /*tambahkan bagian berikut*/
-//            intent.putExtra("name", "Politeknik Caltex Riau")
-//            intent.putExtra("from", "Rumbai")
-//            intent.putExtra("age", 25)
-
             startActivity(intent)
         }
+
+
 
 
 

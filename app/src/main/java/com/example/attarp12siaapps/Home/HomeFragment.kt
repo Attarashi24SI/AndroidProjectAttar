@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.attarp12siaapps.Home.Pertemuan_10.TenthActivity
 import com.example.attarp12siaapps.Home.Pertemuan_2.SecondActivity
 import com.example.attarp12siaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.attarp12siaapps.Home.Pertemuan_9.NinthActivity
@@ -101,6 +102,13 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
+        // Button Pertemuan 4
+        binding.btnToP10.setOnClickListener {
+
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+
+            startActivity(intent)
+        }
         return binding.root
     }
 
