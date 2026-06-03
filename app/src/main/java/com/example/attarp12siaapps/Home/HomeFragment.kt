@@ -6,9 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.attarp12siaapps.Data.api.PhotoApiClient
 import com.example.attarp12siaapps.Home.Pertemuan_10.TenthActivity
 import com.example.attarp12siaapps.Home.Pertemuan_2.SecondActivity
 import com.example.attarp12siaapps.Home.Pertemuan_7.SeventhActivity
@@ -16,8 +20,10 @@ import com.example.attarp12siaapps.Home.Pertemuan_9.NinthActivity
 import com.example.attarp12siaapps.Home.pertemuan_3.ThirdActivity
 import com.example.attarp12siaapps.Home.pertemuan_4.FourthActivity
 import com.example.attarp12siaapps.Home.pertemuan_5.activity_fifth
+import com.example.attarp12siaapps.Home.photo.PhotoAdapter
 import com.example.attarp12siaapps.R
 import com.example.attarp12siaapps.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
 
@@ -109,11 +115,36 @@ class HomeFragment : Fragment() {
 
             startActivity(intent)
         }
+
+        loadPhoto()
+
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun loadPhoto() {
+        lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical*/
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal */
+                //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid */
+                //binding.rvGallery.layoutManager = GridLayoutManager(requireContext(),2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
