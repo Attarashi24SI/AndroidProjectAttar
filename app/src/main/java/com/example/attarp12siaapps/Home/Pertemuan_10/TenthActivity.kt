@@ -14,7 +14,6 @@ import com.example.attarp12siaapps.databinding.ActivityTenthBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class TenthActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityTenthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

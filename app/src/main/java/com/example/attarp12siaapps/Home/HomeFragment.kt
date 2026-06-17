@@ -17,6 +17,7 @@ import com.example.attarp12siaapps.Home.Pertemuan_10.TenthActivity
 import com.example.attarp12siaapps.Home.Pertemuan_2.SecondActivity
 import com.example.attarp12siaapps.Home.Pertemuan_7.SeventhActivity
 import com.example.attarp12siaapps.Home.Pertemuan_9.NinthActivity
+import com.example.attarp12siaapps.Home.pertemuan_13.ThirteenthActivity
 import com.example.attarp12siaapps.Home.pertemuan_3.ThirdActivity
 import com.example.attarp12siaapps.Home.pertemuan_4.FourthActivity
 import com.example.attarp12siaapps.Home.pertemuan_5.activity_fifth
@@ -112,6 +113,14 @@ class HomeFragment : Fragment() {
         binding.btnToP10.setOnClickListener {
 
             val intent = Intent(requireContext(), TenthActivity::class.java)
+
+            startActivity(intent)
+        }
+
+        // Button Pertemuan 13
+        binding.btnToP13.setOnClickListener {
+
+            val intent = Intent(requireContext(), ThirteenthActivity::class.java)
 
             startActivity(intent)
         }
