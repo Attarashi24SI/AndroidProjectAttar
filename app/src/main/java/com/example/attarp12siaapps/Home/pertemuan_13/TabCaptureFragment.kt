@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.attarp12siaapps.R
 import com.example.attarp12siaapps.databinding.FragmentTabCaptureBinding
+import com.example.attarp12siaapps.utils.PermissionHelper
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,12 +71,19 @@ class TabCaptureFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnCapture.setOnClickListener {
-            if (hasCameraPermission()) {
-                openCamera()
-            } else {
-                permissionLauncher.launch(Manifest.permission.CAMERA)
-            }
+
+            binding.btnCapture.setOnClickListener {
+                if (!PermissionHelper.hasPermission(
+                        requireActivity(),
+                        Manifest.permission.CAMERA)) {
+                    PermissionHelper.requestPermission(
+                        permissionLauncher,
+                        Manifest.permission.CAMERA
+                    )
+                } else {
+                    openCamera()
+                }
+
         }
     }
 
@@ -85,12 +93,7 @@ class TabCaptureFragment : Fragment() {
         _binding = null
     }
 
-    private fun hasCameraPermission(): Boolean {
-        return ContextCompat.checkSelfPermission(
-            requireContext(),
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED
-    }
+
 
     private fun openCamera() {
         val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
